@@ -47,5 +47,5 @@ jobs:
           --application-name stackulator-code-deploy
           --deployment-config-name CodeDeployDefault.AllAtOnce
           --deployment-group-name stockulator-dev
-          --s3-location bucket=stackulator.com, key=stockulator/build.zip, bundleType=zip
+          --s3-location bucket=stackulator.com,key=stockulator/build.zip,bundleType=zip
       
