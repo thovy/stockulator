@@ -29,7 +29,7 @@ jobs:
         run: CI='false' npm run build
         
       - name: Zip Create
-        run: zip -qq -r ./build-stockulator.zip
+        run: zip -qq -r ./build.zip
         shell: bash
       
       - name: Configure AWS Credentials
@@ -43,12 +43,12 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.SECRET_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
         run: |
-          aws s3 cp --region ap-northeast-2 ./build-stockulator.zip s3://stackulator.com/stockulator/build-stockulator.zip
+          aws s3 cp --region ap-northeast-2 ./build.zip s3://stackulator.com/stockulator/build.zip
       
       - name: Deploy
         run: aws deploy create-deployment
           --application-name stackulator-code-deploy
           --deployment-config-name CodeDeployDefault.AllAtOnce
           --deployment-group-name stockulator-dev
-          --s3-location bucket=stackulator.com, key=stockulator/build-stockulator.zip, bundleType=zip
+          --s3-location bucket=stackulator.com, key=stockulator/build.zip, bundleType=zip
       
