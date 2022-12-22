@@ -40,12 +40,12 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           
       - name: Upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./build.zip s3://stackulator.com/stockulator/build.zip
+        run: aws s3 cp --region ap-northeast-2 ./build.zip s3://stockulatorbucket/stockulator/build.zip
       
       - name: Deploy
         run: aws deploy create-deployment
-          --application-name stackulator-code-deploy
+          --application-name stockulatorcodedeploy
           --deployment-config-name CodeDeployDefault.AllAtOnce
-          --deployment-group-name stockulator-dev
-          --s3-location bucket=stackulator.com,key=stockulator/build.zip,bundleType=zip
+          --deployment-group-name stockulatordeploy
+          --s3-location bucket=stockulatorbucket,key=stockulator/build.zip,bundleType=zip
       
