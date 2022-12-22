@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 echo "> deploy"
 
-cd /opt/codedeploy-agent
-
-npm start
+sudo cp -rf /home/ubuntu/stockulator/dis/* /var/www/html
