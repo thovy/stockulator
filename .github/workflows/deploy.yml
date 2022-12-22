@@ -29,7 +29,7 @@ jobs:
         run: npm install
       
       - name : Npm Build
-        run: CI='false' npm run build
+        run: unset CI && npm run build
         
       - name: Zip Create
         run: zip -qq -r ./build.zip .
