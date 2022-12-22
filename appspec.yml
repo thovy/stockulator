@@ -3,11 +3,11 @@ os: linux
 
 files:
   - source: /
-    destination: /usr/deploy/stockulator
+    destination: /home/ubuntu/stockulator
     overwrite: yes
 
 permissions:
-  - object: /usr/deploy/stockulator
+  - object: /home/ubuntu/stockulator
     owner: root
     group: root
     mode: 755
