@@ -30,6 +30,13 @@ jobs:
       
       - name : Npm Build
         run: unset CI && npm run build
+        
+      - name: Temporarily save build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: build
+          retention-days: 1
       
   docker:
     name: Deploy Docker Image
