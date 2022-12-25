@@ -54,13 +54,13 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/clockbox:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/stockulator:${GITHUB_RUN_ID}
     
     
     
-      - name: Docker build
-        run: |
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker build -t app .
-          docker tag app ${GITHUB_RUN_ID}
-          docker push ${GITHUB_RUN_ID}
+#       - name: Docker build
+#         run: |
+#           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+#           docker build -t app .
+#           docker tag app ${GITHUB_RUN_ID}
+#           docker push ${GITHUB_RUN_ID}
