@@ -48,7 +48,7 @@ jobs:
         run: docker build --tag ${GITHUB_RUN_ID} .
         
       - name: Docker Hub SignIn
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secret.DOCKER_PASSWORD }}
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Publish Docker Image
         run: docker push ${GITHUB_RUN_ID}
