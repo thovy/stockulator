@@ -36,6 +36,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Run id
+        run : echo "github run id - ${GITHUB_RUN_ID}"
       - name: Checkout
         uses: actions/checkout@v3
         
