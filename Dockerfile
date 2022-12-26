@@ -1,8 +1,7 @@
 FROM node:12
 MAINTAINER thovy <kingvely151113@gmail.com>
 
-WORKDIR /usr/src/app
-
+WORKDIR /bin/sh
 COPY package*.json ./
 
 RUN npm install
